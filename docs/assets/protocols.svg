@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-label="MCP connects an AI app to tools, ACP connects an editor to a coding agent, A2A connects agents to each other. Kiro and A2A agents have no common protocol until kiro-a2a translates between them.">
+  <defs>
+    <marker id="v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+    <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity=".08"/></filter>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .h1 { font-size: 24px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #64748b; }
+      .ct { font-size: 17px; font-weight: 700; }
+      .cap { font-size: 12.5px; fill: #475569; }
+      .box { font-size: 13px; font-weight: 600; }
+      .chip { font-size: 12px; font-weight: 700; fill: #ffffff; letter-spacing: .06em; }
+      .small { font-size: 11.5px; fill: #64748b; }
+      .card { animation: rise 1s ease-out both; }
+      .c2 { animation-delay: .25s; } .c3 { animation-delay: .5s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+      .gap { opacity: 0; animation: gap 9s infinite; }
+      .fix { opacity: 1; animation: fix 9s infinite; }
+      @keyframes gap { 0%, 42% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      @keyframes fix { 0%, 46% { opacity: 0; } 56%, 100% { opacity: 1; } }
+      .pulse { animation: pulse 1.2s ease-in-out infinite; transform-origin: 500px 448px; }
+      @keyframes pulse { 50% { transform: scale(1.15); } }
+    </style>
+  </defs>
+
+  <rect width="1000" height="540" rx="22" fill="#ffffff"/>
+  <rect x="1" y="1" width="998" height="538" rx="21" fill="none" stroke="#e2e8f0"/>
+  <text x="40" y="52" class="h1">Three protocols, one gap</text>
+  <text x="40" y="76" class="sub">Each protocol connects a different pair. None of them connects Kiro to your A2A agents on its own.</text>
+
+  <!-- MCP -->
+  <g class="card">
+    <rect x="40" y="100" width="290" height="200" rx="16" fill="#faf7ff" stroke="#e9e0fd" filter="url(#sh)"/>
+    <rect x="60" y="118" width="52" height="24" rx="12" fill="#7c3aed"/><text x="86" y="135" text-anchor="middle" class="chip">MCP</text>
+    <text x="124" y="136" class="ct">AI app ↔ tools</text>
+    <rect x="60" y="176" width="86" height="40" rx="10" fill="#ffffff" stroke="#c4b5fd"/><text x="103" y="201" text-anchor="middle" class="box">Kiro</text>
+    <line x1="150" y1="196" x2="198" y2="196" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#v)"/>
+    <rect x="204" y="158" width="104" height="24" rx="8" fill="#ffffff" stroke="#ddd6fe"/><text x="256" y="175" text-anchor="middle" class="small">search</text>
+    <rect x="204" y="186" width="104" height="24" rx="8" fill="#ffffff" stroke="#ddd6fe"/><text x="256" y="203" text-anchor="middle" class="small">files</text>
+    <rect x="204" y="214" width="104" height="24" rx="8" fill="#ffffff" stroke="#ddd6fe"/><text x="256" y="231" text-anchor="middle" class="small">any tool server</text>
+    <text x="60" y="270" class="cap">How Kiro reaches anything outside itself:</text>
+    <text x="60" y="287" class="cap">it calls tools on MCP servers.</text>
+  </g>
+
+  <!-- ACP -->
+  <g class="card c2">
+    <rect x="355" y="100" width="290" height="200" rx="16" fill="#f5f8ff" stroke="#dbe5fd" filter="url(#sh)"/>
+    <rect x="375" y="118" width="52" height="24" rx="12" fill="#2563eb"/><text x="401" y="135" text-anchor="middle" class="chip">ACP</text>
+    <text x="439" y="136" class="ct">editor ↔ coding agent</text>
+    <rect x="375" y="176" width="92" height="40" rx="10" fill="#ffffff" stroke="#bfdbfe"/><text x="421" y="201" text-anchor="middle" class="box">an editor</text>
+    <line x1="471" y1="196" x2="519" y2="196" stroke="#2563eb" stroke-width="2.5" marker-end="url(#b)"/>
+    <rect x="525" y="176" width="100" height="40" rx="10" fill="#ffffff" stroke="#bfdbfe"/><text x="575" y="201" text-anchor="middle" class="box">kiro-cli acp</text>
+    <text x="375" y="270" class="cap">How a client drives Kiro as an agent:</text>
+    <text x="375" y="287" class="cap">prompts in, streamed work out.</text>
+  </g>
+
+  <!-- A2A -->
+  <g class="card c3">
+    <rect x="670" y="100" width="290" height="200" rx="16" fill="#f3fbfa" stroke="#ccefe9" filter="url(#sh)"/>
+    <rect x="690" y="118" width="52" height="24" rx="12" fill="#0d9488"/><text x="716" y="135" text-anchor="middle" class="chip">A2A</text>
+    <text x="754" y="136" class="ct">agent ↔ agent</text>
+    <rect x="690" y="176" width="86" height="40" rx="10" fill="#ffffff" stroke="#99f6e4"/><text x="733" y="201" text-anchor="middle" class="box">agent</text>
+    <line x1="782" y1="196" x2="848" y2="196" stroke="#0d9488" stroke-width="2.5" marker-start="url(#t)" marker-end="url(#t)"/>
+    <rect x="854" y="176" width="86" height="40" rx="10" fill="#ffffff" stroke="#99f6e4"/><text x="897" y="201" text-anchor="middle" class="box">agent</text>
+    <text x="690" y="270" class="cap">How your agents (LangGraph, ADK, …)</text>
+    <text x="690" y="287" class="cap">delegate work over the network.</text>
+  </g>
+
+  <!-- the gap, then the fix -->
+  <rect x="40" y="330" width="920" height="180" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="80" y="410" width="200" height="76" rx="14" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+  <text x="180" y="442" text-anchor="middle" class="ct">Kiro</text>
+  <text x="180" y="464" text-anchor="middle" class="small">speaks MCP (and ACP)</text>
+  <rect x="720" y="410" width="200" height="76" rx="14" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+  <text x="820" y="442" text-anchor="middle" class="ct">your A2A agents</text>
+  <text x="820" y="464" text-anchor="middle" class="small">parent + sub-agents</text>
+
+  <g class="gap">
+    <text x="500" y="368" text-anchor="middle" class="ct" style="fill:#b45309">The gap</text>
+    <text x="500" y="390" text-anchor="middle" class="cap">different protocols: Kiro can't call them, they can't reach Kiro</text>
+    <line x1="284" y1="448" x2="470" y2="448" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 7"/>
+    <line x1="530" y1="448" x2="716" y2="448" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 7"/>
+    <g class="pulse"><circle cx="500" cy="448" r="22" fill="#fff7ed" stroke="#f59e0b" stroke-width="2.5"/>
+      <path d="M490 438 L510 458 M510 438 L490 458" stroke="#d97706" stroke-width="3.5" stroke-linecap="round"/></g>
+  </g>
+
+  <g class="fix">
+    <text x="500" y="368" text-anchor="middle" class="ct" style="fill:#6d28d9">The fix: kiro-a2a translates</text>
+    <text x="500" y="390" text-anchor="middle" class="cap">MCP on Kiro's side, A2A on your agents' side, plus sign-in, progress and questions</text>
+    <path id="left" d="M284 448 H406" stroke="#7c3aed" stroke-width="3" marker-end="url(#v)" fill="none"/>
+    <path id="right" d="M594 448 H716" stroke="#0d9488" stroke-width="3" marker-end="url(#t)" fill="none"/>
+    <text x="345" y="438" text-anchor="middle" class="small" style="fill:#6d28d9">MCP</text>
+    <text x="655" y="438" text-anchor="middle" class="small" style="fill:#0f766e">A2A</text>
+    <rect x="412" y="418" width="176" height="60" rx="14" fill="#7c3aed"/>
+    <text x="500" y="445" text-anchor="middle" class="ct" style="fill:#ffffff">kiro-a2a</text>
+    <text x="500" y="465" text-anchor="middle" class="small" style="fill:#f5f3ff">the bridge</text>
+    <circle r="5" fill="#7c3aed"><animateMotion dur="1.6s" repeatCount="indefinite" path="M284 448 H406"/></circle>
+    <circle r="5" fill="#0d9488"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite" path="M594 448 H716"/></circle>
+  </g>
+</svg>

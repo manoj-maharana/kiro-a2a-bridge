@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580" role="img" aria-label="Inside the bridge: Kiro side modules (MCP server, tool registry, Kiro setup), translation modules (call mapper, stream reducer, version adapter), agent side modules (card resolver, auth, transport)">
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b"/></marker>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity=".07"/></filter>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .h1 { font-size: 23px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #64748b; }
+      .lane { font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+      .cn { font-size: 14.5px; font-weight: 700; }
+      .mod { font-size: 11px; fill: #94a3b8; font-family: Consolas, 'Cascadia Code', monospace; }
+      .cd { font-size: 12px; fill: #475569; }
+      .edge { font-size: 12px; font-weight: 700; fill: #64748b; }
+      .card { animation: rise .7s ease-out both; }
+      .k1{animation-delay:.1s}.k2{animation-delay:.2s}.k3{animation-delay:.3s}
+      .t1{animation-delay:.5s}.t2{animation-delay:.6s}.t3{animation-delay:.7s}
+      .g1{animation-delay:.9s}.g2{animation-delay:1s}.g3{animation-delay:1.1s}
+      @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    </style>
+  </defs>
+  <rect width="1000" height="580" rx="22" fill="#ffffff"/>
+  <rect x="1" y="1" width="998" height="578" rx="21" fill="none" stroke="#e2e8f0"/>
+  <text x="40" y="50" class="h1">Inside the bridge (low-level design)</text>
+  <text x="40" y="74" class="sub">Small, single-purpose modules. A Kiro tool call enters on the left and leaves as an A2A task on the right.</text>
+
+  <!-- lanes -->
+  <rect x="40" y="100" width="290" height="372" rx="16" fill="#faf7ff" stroke="#ddd6fe"/>
+  <text x="60" y="126" class="lane" style="fill:#7c3aed">KIRO SIDE  ·  MCP</text>
+  <rect x="355" y="100" width="290" height="372" rx="16" fill="#f5f8ff" stroke="#dbeafe"/>
+  <text x="375" y="126" class="lane" style="fill:#2563eb">TRANSLATION</text>
+  <rect x="670" y="100" width="290" height="372" rx="16" fill="#f3fbfa" stroke="#ccfbf1"/>
+  <text x="690" y="126" class="lane" style="fill:#0d9488">AGENT SIDE  ·  A2A</text>
+
+  <!-- Kiro side -->
+  <g class="card k1"><rect x="56" y="142" width="258" height="96" rx="12" fill="#ffffff" stroke="#e9e5f7" filter="url(#sh)"/>
+    <text x="72" y="166" class="cn">MCP server</text><text x="298" y="166" text-anchor="end" class="mod">mcp.py</text>
+    <text x="72" y="188" class="cd">JSON-RPC over stdio: initialize,</text><text x="72" y="205" class="cd">tools/list, tools/call, progress</text></g>
+  <g class="card k2"><rect x="56" y="250" width="258" height="96" rx="12" fill="#ffffff" stroke="#e9e5f7" filter="url(#sh)"/>
+    <text x="72" y="274" class="cn">Tool registry</text><text x="298" y="274" text-anchor="end" class="mod">mcp.py</text>
+    <text x="72" y="296" class="cd">one tool per agent: ask_&lt;name&gt;,</text><text x="72" y="313" class="cd">described from the agent card</text></g>
+  <g class="card k3"><rect x="56" y="358" width="258" height="96" rx="12" fill="#ffffff" stroke="#e9e5f7" filter="url(#sh)"/>
+    <text x="72" y="382" class="cn">Kiro setup</text><text x="298" y="382" text-anchor="end" class="mod">kiro_setup.py</text>
+    <text x="72" y="404" class="cd">add / list / remove: mcp.json,</text><text x="72" y="421" class="cd">custom agent, steering file</text></g>
+
+  <!-- Translation -->
+  <g class="card t1"><rect x="371" y="142" width="258" height="96" rx="12" fill="#ffffff" stroke="#dbeafe" filter="url(#sh)"/>
+    <text x="387" y="166" class="cn">Call mapper</text><text x="613" y="166" text-anchor="end" class="mod">a2a_client.py</text>
+    <text x="387" y="188" class="cd">tool arguments → A2A message;</text><text x="387" y="205" class="cd">carries context_id and task_id</text></g>
+  <g class="card t2"><rect x="371" y="250" width="258" height="96" rx="12" fill="#ffffff" stroke="#dbeafe" filter="url(#sh)"/>
+    <text x="387" y="274" class="cn">Stream reducer</text><text x="613" y="274" text-anchor="end" class="mod">a2a_client.py</text>
+    <text x="387" y="296" class="cd">SSE events → live progress lines</text><text x="387" y="313" class="cd">and one final answer</text></g>
+  <g class="card t3"><rect x="371" y="358" width="258" height="96" rx="12" fill="#ffffff" stroke="#dbeafe" filter="url(#sh)"/>
+    <text x="387" y="382" class="cn">Version adapter</text><text x="613" y="382" text-anchor="end" class="mod">protocol.py</text>
+    <text x="387" y="404" class="cd">A2A 1.0 ⇄ 0.3: method names,</text><text x="387" y="421" class="cd">states, message parts, cards</text></g>
+
+  <!-- Agent side -->
+  <g class="card g1"><rect x="686" y="142" width="258" height="96" rx="12" fill="#ffffff" stroke="#ccfbf1" filter="url(#sh)"/>
+    <text x="702" y="166" class="cn">Card resolver</text><text x="928" y="166" text-anchor="end" class="mod">a2a_client.py</text>
+    <text x="702" y="188" class="cd">reads /.well-known/agent-card.json;</text><text x="702" y="205" class="cd">can require a signed card</text></g>
+  <g class="card g2"><rect x="686" y="250" width="258" height="96" rx="12" fill="#ffffff" stroke="#ccfbf1" filter="url(#sh)"/>
+    <text x="702" y="274" class="cn">Auth</text><text x="928" y="274" text-anchor="end" class="mod">auth.py</text>
+    <text x="702" y="296" class="cd">OAuth 2.0 / OIDC, API keys, mTLS;</text><text x="702" y="313" class="cd">per-user token cache</text></g>
+  <g class="card g3"><rect x="686" y="358" width="258" height="96" rx="12" fill="#ffffff" stroke="#ccfbf1" filter="url(#sh)"/>
+    <text x="702" y="382" class="cn">Transport</text><text x="928" y="382" text-anchor="end" class="mod">a2a_client.py</text>
+    <text x="702" y="404" class="cd">HTTPS, proxies, company CA;</text><text x="702" y="421" class="cd">fresh token and retry on 401</text></g>
+
+  <!-- flow between lanes -->
+  <path d="M316 190 H369" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#b)"/>
+  <path d="M631 190 H684" stroke="#0d9488" stroke-width="2.5" marker-end="url(#b)"/>
+  <path d="M684 298 H631" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#b)"/>
+  <path d="M369 298 H316" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#b)"/>
+  <circle r="4.5" fill="#7c3aed"><animateMotion dur="1.6s" repeatCount="indefinite" path="M316 190 H369"/></circle>
+  <circle r="4.5" fill="#0d9488"><animateMotion dur="1.6s" begin=".4s" repeatCount="indefinite" path="M631 190 H684"/></circle>
+  <circle r="4" fill="#0d9488"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite" path="M684 298 H631"/></circle>
+  <circle r="4" fill="#7c3aed"><animateMotion dur="1.6s" begin="1.2s" repeatCount="indefinite" path="M369 298 H316"/></circle>
+
+  <!-- shared -->
+  <rect x="40" y="488" width="920" height="62" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="60" y="514" class="cn" style="font-size:13px;fill:#334155">Shared</text>
+  <text x="60" y="536" class="cd">jsonrpc.py (JSON-RPC over stdio) · config.py (agent registry, ${ENV} secrets) · doctor.py (health checks) · console.py (terminal output)</text>
+</svg>

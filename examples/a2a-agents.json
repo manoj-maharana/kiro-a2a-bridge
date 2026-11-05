@@ -1,0 +1,34 @@
+{
+  "agents": [
+    {
+      "name": "reviewer",
+      "url": "https://agents.example.com/reviewer",
+      "auth": {
+        "type": "oauth2",
+        "client_id": "1234-abcd",
+        "issuer": "https://login.example.com/my-tenant/v2.0",
+        "scopes": [
+          "api://reviewer/agent.use",
+          "offline_access"
+        ]
+      },
+      "tls": {
+        "ca_bundle": "/path/to/company-root.pem"
+      }
+    },
+    {
+      "name": "builder",
+      "url": "https://agents.example.com/builder",
+      "auth": {
+        "client_id": "build-bot",
+        "client_secret": "${BUILDER_CLIENT_SECRET}",
+        "token_url": "https://login.example.com/oauth2/token",
+        "audience": "https://agents.example.com"
+      }
+    },
+    {
+      "name": "local",
+      "url": "http://localhost:9001"
+    }
+  ]
+}

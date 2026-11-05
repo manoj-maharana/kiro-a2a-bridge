@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-label="kiro-a2a-bridge">
+  <defs>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; }
+      .draw { stroke-dasharray: 160; stroke-dashoffset: 160; animation: draw 1.4s ease-out .2s forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      .dot { animation: glow 2.4s ease-in-out infinite; }
+      .d2 { animation-delay: 1.2s; }
+      @keyframes glow { 50% { opacity: .55; } }
+    </style>
+  </defs>
+  <rect width="640" height="160" rx="24" fill="#ffffff"/>
+  <rect x=".5" y=".5" width="639" height="159" rx="24" fill="none" stroke="#e9e5f7"/>
+  <g transform="translate(40 34)">
+    <path class="draw" d="M14 70 Q 56 4 98 70" fill="none" stroke="url(#arc)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="14" y1="70" x2="98" y2="70" stroke="url(#arc)" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+    <line x1="42" y1="44" x2="42" y2="70" stroke="#7c3aed" stroke-width="3" opacity=".45"/>
+    <line x1="56" y1="37" x2="56" y2="70" stroke="#4f6fc4" stroke-width="3" opacity=".45"/>
+    <line x1="70" y1="44" x2="70" y2="70" stroke="#0d9488" stroke-width="3" opacity=".45"/>
+    <circle class="dot" cx="14" cy="70" r="14" fill="#7c3aed"/>
+    <circle class="dot d2" cx="98" cy="70" r="14" fill="#0d9488"/>
+    <circle cx="14" cy="70" r="5" fill="#ffffff"/>
+    <circle cx="98" cy="70" r="5" fill="#ffffff"/>
+  </g>
+  <text x="172" y="86" font-size="44" font-weight="700" fill="#0f172a">kiro<tspan fill="#7c3aed">-</tspan>a2a<tspan fill="#0d9488" font-weight="500">-bridge</tspan></text>
+  <text x="174" y="118" font-size="17" fill="#64748b">Your A2A agents, inside Kiro. One command per agent.</text>
+</svg>

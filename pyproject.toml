@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kiro-a2a-bridge"
+dynamic = ["version"]
+description = "Use your own A2A agents and sub-agents inside Kiro (IDE and CLI) with one command per agent: live progress, follow-ups, questions and OAuth sign-in."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Manoj Maharana" }]
+keywords = [
+    "kiro", "a2a", "agent2agent", "acp", "agent-client-protocol", "mcp",
+    "ai-agents", "multi-agent", "oauth", "coding-agent",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+dependencies = ["aiohttp>=3.9"]
+
+[project.optional-dependencies]
+oauth = ["pyjwt[crypto]>=2.8"]
+telemetry = ["opentelemetry-api>=1.20"]
+all = ["pyjwt[crypto]>=2.8", "opentelemetry-api>=1.20"]
+dev = ["pytest>=8", "pyjwt[crypto]>=2.8", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/manoj-maharana/kiro-a2a-bridge"
+Documentation = "https://github.com/manoj-maharana/kiro-a2a-bridge#readme"
+Issues = "https://github.com/manoj-maharana/kiro-a2a-bridge/issues"
+Changelog = "https://github.com/manoj-maharana/kiro-a2a-bridge/blob/main/CHANGELOG.md"
+
+[project.scripts]
+kiro-a2a = "kiro_a2a.cli:main"
+
+[tool.hatch.version]
+path = "src/kiro_a2a/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kiro_a2a"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "docs", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+extend-exclude = ["docs/assets/make_demo.py"]
+line-length = 135
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "ASYNC"]
+# ASYNC240: quick os.path checks on local config files are fine in async code
+ignore = ["E731", "B008", "ASYNC240"]

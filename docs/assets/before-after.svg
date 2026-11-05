@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640" role="img" aria-label="Without kiro-a2a, Kiro cannot reach your parent agent or its sub-agents for five reasons. With kiro-a2a, each reason is solved and Kiro reaches the parent and every sub-agent.">
+  <defs>
+    <marker id="v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker>
+    <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity=".08"/></filter>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .h1 { font-size: 23px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #64748b; }
+      .ph { font-size: 17px; font-weight: 700; }
+      .name { font-size: 13.5px; font-weight: 700; }
+      .small { font-size: 11.5px; fill: #64748b; }
+      .item { font-size: 13.5px; fill: #334155; }
+      .cap { font-size: 13px; font-weight: 600; }
+      .i { opacity: 0; animation: in .5s ease-out forwards; }
+      @keyframes in { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+      .l1{animation-delay:.3s}.l2{animation-delay:.6s}.l3{animation-delay:.9s}.l4{animation-delay:1.2s}.l5{animation-delay:1.5s}
+      .r1{animation-delay:2.1s}.r2{animation-delay:2.4s}.r3{animation-delay:2.7s}.r4{animation-delay:3s}.r5{animation-delay:3.3s}
+      .blink { animation: blink 1.4s ease-in-out infinite; }
+      @keyframes blink { 50% { opacity: .35; } }
+    </style>
+  </defs>
+
+  <rect width="1000" height="640" rx="22" fill="#ffffff"/>
+  <rect x="1" y="1" width="998" height="638" rx="21" fill="none" stroke="#e2e8f0"/>
+  <text x="40" y="50" class="h1">Why Kiro can't reach your sub-agents, and what changes with kiro-a2a</text>
+  <text x="40" y="74" class="sub">Your agents already work together over A2A. The missing piece is the road from Kiro to them.</text>
+
+  <!-- ================= without ================= -->
+  <rect x="24" y="96" width="468" height="520" rx="18" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="48" y="128" class="ph" style="fill:#b45309">Without kiro-a2a</text>
+
+  <rect x="48" y="170" width="112" height="56" rx="12" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+  <text x="104" y="195" text-anchor="middle" class="name">Kiro</text>
+  <text x="104" y="213" text-anchor="middle" class="small">MCP client</text>
+
+  <rect x="300" y="150" width="168" height="50" rx="12" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+  <text x="384" y="172" text-anchor="middle" class="name">orchestrator</text>
+  <text x="384" y="189" text-anchor="middle" class="small">A2A</text>
+  <path d="M342 200 V236" stroke="#0d9488" stroke-width="2" marker-end="url(#t)"/>
+  <path d="M426 200 V236" stroke="#0d9488" stroke-width="2" marker-end="url(#t)"/>
+  <rect x="300" y="240" width="80" height="40" rx="10" fill="#f0fdfa" stroke="#99f6e4"/><text x="340" y="265" text-anchor="middle" class="small" style="fill:#0f172a">sub-agent</text>
+  <rect x="388" y="240" width="80" height="40" rx="10" fill="#f0fdfa" stroke="#99f6e4"/><text x="428" y="265" text-anchor="middle" class="small" style="fill:#0f172a">sub-agent</text>
+
+  <path d="M162 198 C 220 198 240 176 298 176" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="7 6"/>
+  <path d="M162 210 C 230 214 250 258 298 260" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 6"/>
+  <g class="blink"><circle cx="232" cy="190" r="16" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <path d="M225 183 L239 197 M239 183 L225 197" stroke="#d97706" stroke-width="3" stroke-linecap="round"/></g>
+  <text x="258" y="318" text-anchor="middle" class="cap" style="fill:#b45309">Kiro can't reach the parent, or any sub-agent</text>
+
+  <g class="item">
+    <g class="i l1"><circle cx="58" cy="370" r="10" fill="#fef3c7"/><text x="58" y="375" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#d97706">✕</text>
+      <text x="78" y="375">Kiro calls MCP tools; your agents expect A2A tasks</text></g>
+    <g class="i l2"><circle cx="58" cy="414" r="10" fill="#fef3c7"/><text x="58" y="419" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#d97706">✕</text>
+      <text x="78" y="419">Nothing reads their agent cards or skills</text></g>
+    <g class="i l3"><circle cx="58" cy="458" r="10" fill="#fef3c7"/><text x="58" y="463" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#d97706">✕</text>
+      <text x="78" y="463">No OAuth sign-in to company-protected agents</text></g>
+    <g class="i l4"><circle cx="58" cy="502" r="10" fill="#fef3c7"/><text x="58" y="507" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#d97706">✕</text>
+      <text x="78" y="507">No streaming: no progress, just a long wait</text></g>
+    <g class="i l5"><circle cx="58" cy="546" r="10" fill="#fef3c7"/><text x="58" y="551" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#d97706">✕</text>
+      <text x="78" y="551">Agent questions and follow-ups get lost</text></g>
+  </g>
+
+  <!-- ================= with ================= -->
+  <rect x="508" y="96" width="468" height="520" rx="18" fill="#faf7ff" stroke="#ddd6fe"/>
+  <text x="532" y="128" class="ph" style="fill:#6d28d9">With kiro-a2a</text>
+
+  <rect x="532" y="170" width="96" height="56" rx="12" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+  <text x="580" y="195" text-anchor="middle" class="name">Kiro</text>
+  <text x="580" y="213" text-anchor="middle" class="small">ask_* tools</text>
+  <path d="M630 198 H652" stroke="#7c3aed" stroke-width="3" marker-end="url(#v)"/>
+  <rect x="656" y="160" width="118" height="76" rx="14" fill="#7c3aed" filter="url(#sh)"/>
+  <text x="715" y="194" text-anchor="middle" class="name" style="fill:#ffffff">kiro-a2a</text>
+  <text x="715" y="213" text-anchor="middle" class="small" style="fill:#ede9fe">MCP ⇄ A2A</text>
+  <path d="M776 186 H794" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+  <path d="M776 220 C 800 230 812 248 822 248" fill="none" stroke="#0d9488" stroke-width="2" stroke-dasharray="3 5" marker-end="url(#t)"/>
+  <rect x="798" y="150" width="154" height="50" rx="12" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+  <text x="875" y="172" text-anchor="middle" class="name">orchestrator</text>
+  <text x="875" y="189" text-anchor="middle" class="small">A2A</text>
+  <path d="M916 200 V236" stroke="#0d9488" stroke-width="2" marker-end="url(#t)"/>
+  <rect x="826" y="240" width="60" height="40" rx="10" fill="#f0fdfa" stroke="#99f6e4"/><text x="856" y="265" text-anchor="middle" class="small" style="fill:#0f172a">sub</text>
+  <rect x="892" y="240" width="60" height="40" rx="10" fill="#f0fdfa" stroke="#99f6e4"/><text x="922" y="265" text-anchor="middle" class="small" style="fill:#0f172a">sub</text>
+  <circle r="4.5" fill="#7c3aed"><animateMotion dur="1.5s" repeatCount="indefinite" path="M630 198 H652"/></circle>
+  <circle r="4.5" fill="#0d9488"><animateMotion dur="1.5s" begin=".5s" repeatCount="indefinite" path="M776 186 H794"/></circle>
+  <circle r="4" fill="#0d9488"><animateMotion dur="2s" begin=".2s" repeatCount="indefinite" path="M776 220 C 800 230 812 248 822 248"/></circle>
+  <text x="742" y="318" text-anchor="middle" class="cap" style="fill:#6d28d9">Kiro reaches the parent and every sub-agent</text>
+
+  <g class="item">
+    <g class="i r1"><circle cx="542" cy="370" r="10" fill="#ede9fe"/><text x="542" y="375" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#7c3aed">✓</text>
+      <text x="562" y="375">One MCP tool per agent: ask_&lt;name&gt;</text></g>
+    <g class="i r2"><circle cx="542" cy="414" r="10" fill="#ede9fe"/><text x="542" y="419" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#7c3aed">✓</text>
+      <text x="562" y="419">Reads each card: description, skills, sign-in</text></g>
+    <g class="i r3"><circle cx="542" cy="458" r="10" fill="#ede9fe"/><text x="542" y="463" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#7c3aed">✓</text>
+      <text x="562" y="463">OAuth / OIDC, API keys, company certificates</text></g>
+    <g class="i r4"><circle cx="542" cy="502" r="10" fill="#ede9fe"/><text x="542" y="507" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#7c3aed">✓</text>
+      <text x="562" y="507">Working updates arrive as live progress</text></g>
+    <g class="i r5"><circle cx="542" cy="546" r="10" fill="#ede9fe"/><text x="542" y="551" text-anchor="middle" style="font-size:13px;font-weight:700;fill:#7c3aed">✓</text>
+      <text x="562" y="551">Questions and follow-ups return to the same task</text></g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.env
+.ruff_cache/
+
+# local tool, assistant and editor settings: never part of the project
+.kiro/
+.amazonq/
+.vscode/
+.idea/

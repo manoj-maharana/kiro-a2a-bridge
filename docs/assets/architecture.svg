@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" role="img" aria-label="kiro-a2a connects Kiro to A2A agents over MCP, A2A apps to Kiro over ACP, and ACP editors to A2A agents">
+  <defs>
+    <marker id="v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+    <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity=".08"/></filter>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .h1 { font-size: 24px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #64748b; }
+      .lane { font-size: 12px; font-weight: 700; letter-spacing: .08em; fill: #64748b; }
+      .name { font-size: 16px; font-weight: 700; }
+      .note { font-size: 12px; fill: #64748b; }
+      .proto { font-size: 12px; font-weight: 700; }
+      .chip { font-size: 11.5px; fill: #5b21b6; }
+      .row { animation: rise .9s ease-out both; }
+      .r2 { animation-delay: .35s; } .r3 { animation-delay: .7s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    </style>
+  </defs>
+
+  <rect width="1000" height="600" rx="22" fill="#ffffff"/>
+  <rect x="1" y="1" width="998" height="598" rx="21" fill="none" stroke="#e2e8f0"/>
+  <text x="40" y="52" class="h1">One bridge, three directions</text>
+  <text x="40" y="76" class="sub">Dots show requests going out and results streaming back. Your agents and Kiro stay unchanged.</text>
+
+  <!-- Row 1: Kiro -> your agents -->
+  <g class="row">
+    <rect x="24" y="98" width="952" height="196" rx="18" fill="#faf7ff" stroke="#ede9fe"/>
+    <text x="44" y="124" class="lane">KIRO → YOUR A2A AGENTS  ·  the main use</text>
+    <rect x="44" y="150" width="190" height="86" rx="14" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+    <text x="139" y="186" text-anchor="middle" class="name">Kiro</text>
+    <text x="139" y="207" text-anchor="middle" class="note">IDE · CLI · chat</text>
+
+    <path d="M238 193 H352" stroke="#7c3aed" stroke-width="3" marker-end="url(#v)"/>
+    <text x="295" y="182" text-anchor="middle" class="proto" style="fill:#6d28d9">MCP</text>
+    <circle r="5" fill="#7c3aed"><animateMotion dur="1.8s" repeatCount="indefinite" path="M238 193 H352"/></circle>
+    <circle r="4" fill="#c4b5fd"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite" path="M352 207 H238"/></circle>
+
+    <rect x="358" y="140" width="250" height="106" rx="16" fill="#7c3aed" filter="url(#sh)"/>
+    <text x="483" y="172" text-anchor="middle" class="name" style="fill:#ffffff">kiro-a2a mcp</text>
+    <text x="483" y="192" text-anchor="middle" class="note" style="fill:#ede9fe">started by Kiro, one tool per agent</text>
+    <rect x="374" y="206" width="104" height="26" rx="13" fill="#ede9fe"/><text x="426" y="223" text-anchor="middle" class="chip">OAuth sign-in</text>
+    <rect x="486" y="206" width="108" height="26" rx="13" fill="#ede9fe"/><text x="540" y="223" text-anchor="middle" class="chip">live progress</text>
+
+    <path d="M612 193 H710" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+    <text x="661" y="182" text-anchor="middle" class="proto" style="fill:#0f766e">A2A</text>
+    <circle r="5" fill="#0d9488"><animateMotion dur="1.8s" begin=".45s" repeatCount="indefinite" path="M612 193 H710"/></circle>
+    <circle r="4" fill="#99f6e4"><animateMotion dur="1.8s" begin="1.35s" repeatCount="indefinite" path="M710 207 H612"/></circle>
+
+    <rect x="716" y="140" width="244" height="58" rx="14" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+    <text x="838" y="166" text-anchor="middle" class="name">orchestrator</text>
+    <text x="838" y="186" text-anchor="middle" class="note">parent agent (LangGraph, ADK, …)</text>
+    <path d="M790 198 V228" stroke="#0d9488" stroke-width="2" marker-end="url(#t)"/>
+    <path d="M886 198 V228" stroke="#0d9488" stroke-width="2" marker-end="url(#t)"/>
+    <rect x="716" y="232" width="118" height="40" rx="12" fill="#f0fdfa" stroke="#99f6e4"/><text x="775" y="257" text-anchor="middle" class="note" style="fill:#0f172a">sub-agent</text>
+    <rect x="842" y="232" width="118" height="40" rx="12" fill="#f0fdfa" stroke="#99f6e4"/><text x="901" y="257" text-anchor="middle" class="note" style="fill:#0f172a">sub-agent</text>
+  </g>
+
+  <!-- Row 2: A2A apps -> Kiro -->
+  <g class="row r2">
+    <rect x="24" y="312" width="952" height="128" rx="18" fill="#f5f8ff" stroke="#dbeafe"/>
+    <text x="44" y="338" class="lane">YOUR A2A APPS → KIRO</text>
+    <rect x="44" y="352" width="190" height="70" rx="14" fill="#ffffff" stroke="#99f6e4" filter="url(#sh)"/>
+    <text x="139" y="382" text-anchor="middle" class="name">any A2A app</text>
+    <text x="139" y="402" text-anchor="middle" class="note">orchestrator, workflow</text>
+    <path d="M238 387 H352" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+    <text x="295" y="376" text-anchor="middle" class="proto" style="fill:#0f766e">A2A</text>
+    <circle r="5" fill="#0d9488"><animateMotion dur="1.8s" begin=".2s" repeatCount="indefinite" path="M238 387 H352"/></circle>
+    <rect x="358" y="352" width="250" height="70" rx="16" fill="#2563eb" filter="url(#sh)"/>
+    <text x="483" y="382" text-anchor="middle" class="name" style="fill:#ffffff">kiro-a2a serve</text>
+    <text x="483" y="402" text-anchor="middle" class="note" style="fill:#dbeafe">permissions · push · signed card</text>
+    <path d="M612 387 H710" stroke="#2563eb" stroke-width="3" marker-end="url(#b)"/>
+    <text x="661" y="376" text-anchor="middle" class="proto" style="fill:#1d4ed8">ACP</text>
+    <circle r="5" fill="#2563eb"><animateMotion dur="1.8s" begin=".65s" repeatCount="indefinite" path="M612 387 H710"/></circle>
+    <rect x="716" y="352" width="244" height="70" rx="14" fill="#ffffff" stroke="#bfdbfe" filter="url(#sh)"/>
+    <text x="838" y="382" text-anchor="middle" class="name">kiro-cli acp</text>
+    <text x="838" y="402" text-anchor="middle" class="note">or Codex, Gemini CLI, any ACP agent</text>
+  </g>
+
+  <!-- Row 3: ACP editors -> your agent -->
+  <g class="row r3">
+    <rect x="24" y="458" width="952" height="122" rx="18" fill="#f3fbfa" stroke="#ccfbf1"/>
+    <text x="44" y="484" class="lane">ACP EDITORS → YOUR A2A AGENT</text>
+    <rect x="44" y="496" width="190" height="66" rx="14" fill="#ffffff" stroke="#bfdbfe" filter="url(#sh)"/>
+    <text x="139" y="525" text-anchor="middle" class="name">an ACP editor</text>
+    <text x="139" y="545" text-anchor="middle" class="note">hosts ACP agents</text>
+    <path d="M238 529 H352" stroke="#2563eb" stroke-width="3" marker-end="url(#b)"/>
+    <text x="295" y="518" text-anchor="middle" class="proto" style="fill:#1d4ed8">ACP</text>
+    <circle r="5" fill="#2563eb"><animateMotion dur="1.8s" begin=".4s" repeatCount="indefinite" path="M238 529 H352"/></circle>
+    <rect x="358" y="496" width="250" height="66" rx="16" fill="#0d9488" filter="url(#sh)"/>
+    <text x="483" y="525" text-anchor="middle" class="name" style="fill:#ffffff">kiro-a2a acp</text>
+    <text x="483" y="545" text-anchor="middle" class="note" style="fill:#ccfbf1">edits shown as diffs</text>
+    <path d="M612 529 H710" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+    <text x="661" y="518" text-anchor="middle" class="proto" style="fill:#0f766e">A2A</text>
+    <circle r="5" fill="#0d9488"><animateMotion dur="1.8s" begin=".85s" repeatCount="indefinite" path="M612 529 H710"/></circle>
+    <rect x="716" y="496" width="244" height="66" rx="14" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+    <text x="838" y="525" text-anchor="middle" class="name">your A2A agent</text>
+    <text x="838" y="545" text-anchor="middle" class="note">used as the editor's agent</text>
+  </g>
+</svg>

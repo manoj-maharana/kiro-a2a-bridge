@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "reviewer": {
+      "command": "kiro-a2a",
+      "args": [
+        "mcp",
+        "--config",
+        "/path/to/.kiro/a2a-agents.json",
+        "--only",
+        "reviewer"
+      ]
+    }
+  }
+}
