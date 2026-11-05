@@ -16,6 +16,12 @@ outside, it uses MCP tools. Your organization's agents speak A2A. So "Kiro talks
 agent" really means **MCP → A2A**, and "my app talks to Kiro" means **A2A → ACP**. The bridge
 does both, plus **ACP → A2A** for editors that host ACP agents.
 
+ACP is not a step on the way from Kiro to your agent. In the Kiro IDE and `kiro-cli chat` there
+is no ACP at all: Kiro's agent calls `kiro-a2a` over MCP. When an editor drives `kiro-cli acp`,
+ACP only carries the prompt into Kiro; the call out to your agent is still MCP.
+
+![Where ACP and MCP sit](assets/kiro-paths.svg)
+
 ```
             ┌────────────────────── kiro-a2a-bridge ──────────────────────┐
  Kiro ─MCP─▶│ mcp.py ──┐                                                   │

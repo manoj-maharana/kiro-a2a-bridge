@@ -38,6 +38,37 @@ need to change.
   <img src="https://raw.githubusercontent.com/manoj-maharana/kiro-a2a-bridge/main/docs/assets/protocols.svg" alt="MCP, ACP and A2A connect different parties; Kiro and A2A agents share no protocol" width="880">
 </p>
 
+### Where MCP and ACP sit inside Kiro
+
+A common question is whether Kiro first speaks ACP and then MCP. It depends on how Kiro is used,
+but **the call to your agent always leaves Kiro over MCP**:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/manoj-maharana/kiro-a2a-bridge/main/docs/assets/kiro-paths.svg" alt="Path A: Kiro IDE or kiro-cli chat calls the bridge over MCP, no ACP. Path B: an editor sends the prompt to kiro-cli over ACP, Kiro still calls the bridge over MCP." width="880">
+</p>
+
+- **Kiro IDE or `kiro-cli chat`** (most users): there is no ACP. You type in Kiro, Kiro's agent
+  picks the `ask_<agent>` tool, and calls `kiro-a2a` over MCP. Kiro starts `kiro-a2a` itself
+  from `.kiro/settings/mcp.json`, which `kiro-a2a add` writes for you.
+- **An editor driving `kiro-cli acp`**: the editor sends the prompt into Kiro over ACP. Inside
+  Kiro the same agent runs, and its call to your agent still goes out over MCP through
+  `kiro-a2a`.
+
+In short: **ACP** is how a client talks *to* Kiro, **MCP** is how Kiro talks *out* (to tools and
+to `kiro-a2a`), and **A2A** is how `kiro-a2a` talks to your agents. Kiro never speaks A2A itself,
+which is the gap this project closes.
+
+What happens on one request in the Kiro IDE:
+
+1. On start, Kiro reads `mcp.json` and launches `kiro-a2a mcp` as a local process (stdio).
+2. Kiro asks it for its tools (`tools/list`); `kiro-a2a` reads each agent card and returns
+   `ask_orchestrator`, etc.
+3. You ask *"Ask the orchestrator to …"*; Kiro's model chooses that tool (`tools/call`).
+4. `kiro-a2a` signs in if needed and sends an A2A task to the orchestrator over HTTPS.
+5. The orchestrator delegates to its sub-agents over A2A; progress streams back to Kiro as MCP
+   progress notifications.
+6. The final answer returns to Kiro as the tool result and appears in the chat.
+
 ## The problem
 
 <p align="center">

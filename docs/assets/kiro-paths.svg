@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="Path A: you in Kiro IDE or kiro-cli chat, the Kiro agent calls the bridge over MCP, the bridge calls your agents over A2A; no ACP. Path B: an editor sends your prompt to kiro-cli over ACP, the Kiro agent then calls the bridge over MCP, and the bridge calls your agents over A2A.">
+  <defs>
+    <marker id="v" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7c3aed"/></marker>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+    <marker id="t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0d9488"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker>
+    <filter id="sh" x="-10%" y="-20%" width="120%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity=".07"/></filter>
+    <style>
+      text { font-family: 'Segoe UI', Inter, -apple-system, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .h1 { font-size: 23px; font-weight: 700; }
+      .sub { font-size: 14px; fill: #64748b; }
+      .lane { font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+      .n { font-size: 14px; font-weight: 700; }
+      .s { font-size: 11.5px; fill: #64748b; }
+      .p { font-size: 12px; font-weight: 700; }
+      .note { font-size: 13px; fill: #334155; }
+      .row { animation: rise .8s ease-out both; } .r2 { animation-delay: .4s; } .r3 { animation-delay: .8s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    </style>
+  </defs>
+  <rect width="1000" height="560" rx="22" fill="#ffffff"/>
+  <rect x="1" y="1" width="998" height="558" rx="21" fill="none" stroke="#e2e8f0"/>
+  <text x="40" y="50" class="h1">Where ACP and MCP sit when Kiro calls your agent</text>
+  <text x="40" y="74" class="sub">ACP only carries a prompt into Kiro. Every call out of Kiro, including to your agents, goes over MCP.</text>
+
+  <!-- Path A -->
+  <g class="row">
+    <rect x="24" y="96" width="952" height="170" rx="18" fill="#faf7ff" stroke="#ede9fe"/>
+    <text x="44" y="122" class="lane" style="fill:#7c3aed">PATH A  ·  KIRO IDE  OR  kiro-cli chat  ·  no ACP involved</text>
+    <rect x="44" y="146" width="150" height="66" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#sh)"/>
+    <text x="119" y="174" text-anchor="middle" class="n">You</text><text x="119" y="194" text-anchor="middle" class="s">type in the chat</text>
+    <path d="M196 179 H232" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#g)"/>
+    <rect x="236" y="146" width="190" height="66" rx="12" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+    <text x="331" y="174" text-anchor="middle" class="n">Kiro agent</text><text x="331" y="194" text-anchor="middle" class="s">model picks ask_orchestrator</text>
+    <path d="M428 179 H500" stroke="#7c3aed" stroke-width="3" marker-end="url(#v)"/>
+    <text x="464" y="170" text-anchor="middle" class="p" style="fill:#6d28d9">MCP</text>
+    <rect x="504" y="146" width="190" height="66" rx="12" fill="#7c3aed" filter="url(#sh)"/>
+    <text x="599" y="174" text-anchor="middle" class="n" style="fill:#ffffff">kiro-a2a</text><text x="599" y="194" text-anchor="middle" class="s" style="fill:#ede9fe">MCP server ⇄ A2A client</text>
+    <path d="M696 179 H768" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+    <text x="732" y="170" text-anchor="middle" class="p" style="fill:#0f766e">A2A</text>
+    <rect x="772" y="146" width="186" height="66" rx="12" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+    <text x="865" y="174" text-anchor="middle" class="n">your agents</text><text x="865" y="194" text-anchor="middle" class="s">orchestrator + sub-agents</text>
+    <text x="44" y="246" class="note">Kiro starts kiro-a2a itself (from .kiro/settings/mcp.json) and calls it like any MCP tool.</text>
+    <circle r="4.5" fill="#7c3aed"><animateMotion dur="1.6s" repeatCount="indefinite" path="M428 179 H500"/></circle>
+    <circle r="4.5" fill="#0d9488"><animateMotion dur="1.6s" begin=".5s" repeatCount="indefinite" path="M696 179 H768"/></circle>
+  </g>
+
+  <!-- Path B -->
+  <g class="row r2">
+    <rect x="24" y="284" width="952" height="170" rx="18" fill="#f5f8ff" stroke="#dbeafe"/>
+    <text x="44" y="310" class="lane" style="fill:#2563eb">PATH B  ·  AN EDITOR DRIVES KIRO CLI OVER ACP  (kiro-cli acp)</text>
+    <rect x="44" y="334" width="150" height="66" rx="12" fill="#ffffff" stroke="#bfdbfe" filter="url(#sh)"/>
+    <text x="119" y="362" text-anchor="middle" class="n">An editor</text><text x="119" y="382" text-anchor="middle" class="s">ACP client</text>
+    <path d="M196 367 H232" stroke="#2563eb" stroke-width="3" marker-end="url(#b)"/>
+    <text x="214" y="358" text-anchor="middle" class="p" style="fill:#1d4ed8">ACP</text>
+    <rect x="236" y="334" width="190" height="66" rx="12" fill="#ffffff" stroke="#c4b5fd" filter="url(#sh)"/>
+    <text x="331" y="362" text-anchor="middle" class="n">kiro-cli acp</text><text x="331" y="382" text-anchor="middle" class="s">same Kiro agent inside</text>
+    <path d="M428 367 H500" stroke="#7c3aed" stroke-width="3" marker-end="url(#v)"/>
+    <text x="464" y="358" text-anchor="middle" class="p" style="fill:#6d28d9">MCP</text>
+    <rect x="504" y="334" width="190" height="66" rx="12" fill="#7c3aed" filter="url(#sh)"/>
+    <text x="599" y="362" text-anchor="middle" class="n" style="fill:#ffffff">kiro-a2a</text><text x="599" y="382" text-anchor="middle" class="s" style="fill:#ede9fe">MCP server ⇄ A2A client</text>
+    <path d="M696 367 H768" stroke="#0d9488" stroke-width="3" marker-end="url(#t)"/>
+    <text x="732" y="358" text-anchor="middle" class="p" style="fill:#0f766e">A2A</text>
+    <rect x="772" y="334" width="186" height="66" rx="12" fill="#ffffff" stroke="#5eead4" filter="url(#sh)"/>
+    <text x="865" y="362" text-anchor="middle" class="n">your agents</text><text x="865" y="382" text-anchor="middle" class="s">orchestrator + sub-agents</text>
+    <text x="44" y="434" class="note">ACP brings the prompt into Kiro. Kiro's call to your agent still goes out over MCP, through the same bridge.</text>
+    <circle r="4.5" fill="#2563eb"><animateMotion dur="1.6s" repeatCount="indefinite" path="M196 367 H232"/></circle>
+    <circle r="4.5" fill="#7c3aed"><animateMotion dur="1.6s" begin=".4s" repeatCount="indefinite" path="M428 367 H500"/></circle>
+    <circle r="4.5" fill="#0d9488"><animateMotion dur="1.6s" begin=".8s" repeatCount="indefinite" path="M696 367 H768"/></circle>
+  </g>
+
+  <!-- rule -->
+  <g class="row r3">
+    <rect x="24" y="472" width="952" height="66" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="44" y="500" class="n" style="font-size:13.5px">The rule</text>
+    <text x="44" y="522" class="note"><tspan style="fill:#1d4ed8;font-weight:700">ACP</tspan> = how a client talks to Kiro.   <tspan style="fill:#6d28d9;font-weight:700">MCP</tspan> = how Kiro talks out (to tools and to kiro-a2a).   <tspan style="fill:#0f766e;font-weight:700">A2A</tspan> = how kiro-a2a talks to your agents.</text>
+  </g>
+</svg>
